@@ -12,7 +12,7 @@ public class TaskOne{
 		    System.out.println("The credit card is not valid. ");
 		}
 	}
-	
+	}
 	public static boolean validCardNumber(String creditCardNumber){
 		String creditCardNumber = ("-" + "");
 
@@ -37,4 +37,5 @@ public class TaskOne{
 		if ("creditCardNumber is valid" ){
 	 return true;
 
-	}
+	       }
+        }
