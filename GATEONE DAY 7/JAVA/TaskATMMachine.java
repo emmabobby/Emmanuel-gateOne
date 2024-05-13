@@ -1,35 +1,27 @@
-import java.util.Scanner;
-import java.util.ArrayList;
-
-public class TaskATMMachine {
-
-	public static ArrayList<String>Machine = new ArrayList<>();
+import java.math.BigDecimal;
 
 
-	public static void main(String...args){
+public class TaskATMMachine{
 
-		Scanner scanner = new Scanner(System.in);
-
-		int balance = 1000;
-		int withdraw,deposit;
-
-	
-			while(true) {
-				System.out.println("Welcome to Banke bank ATM");
-				System.out.pritln("Create account");
-				System.out.pritln("Close account");
-				System.out.pritln("Deposit account");
-				System.out.pritln("Withdraw money");
-				System.out.pritln("Check account balance");
-				System.out.pritln("Transfer money");
-				System.out.pritln("Change pin");
-				System.out.pritln("exit");
+private String firstName;
+private String lastName;
+private String pin;
+private BigDecimal balance;
+private string number;
 
 
-			}
-	}
-
-
+public  Account (String firstName,String lastName,String pin, String number){
+this.firstName = firstName;
+this.lastName = lastName;
+this.pin = pin;
+this.number = number;
 }
 
-5
+public BigDecimal checkBalance(String pin){
+BigDecimal result = null;
+if(pin.equals(this.pin)){
+result = balance;
+}
+return result;
+
+}
