@@ -23,6 +23,7 @@ public class TaskATMMachine {
 				System.out.pritln("Check account balance");
 				System.out.pritln("Transfer money");
 				System.out.pritln("Change pin");
+				System.out.pritln("exit");
 
 
 			}
