@@ -1,4 +1,4 @@
-import java.math.BigDecimal;
+import java.util.*;
 
 
 public class TaskATMMachine{
@@ -52,8 +52,10 @@ validateAmount(amount);
 		balance = balance - amount;
 }
 
+public static ArrayList<TaskATMMachine> atm = new ArrayList<>();
+public static void main(String... args){
 
-
+}
 
 
 
