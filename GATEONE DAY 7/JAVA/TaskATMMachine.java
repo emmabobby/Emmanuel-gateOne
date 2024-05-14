@@ -23,7 +23,7 @@ if(!(pin.equals(this.pin))){
 System.out.println("wrong pin");
 }
 else{
-System.out.println(balance);
+System.out.println("account balance is " + balance);
 }
 
 
@@ -94,9 +94,11 @@ public static void mainMenu(){
 Scanner scanner = new Scanner(System.in);
 System.out.println("""
 press 1 -> Create account
+press 2 -> Close account
 press 3 -> Deposit
 press 4 -> Withdraw
 press 5 -> Check balance
+press 6 -> Transfer
 press 7 -> Change pin
 """);
 String userInput = scanner.nextLine();
@@ -104,8 +106,18 @@ String userInput = scanner.nextLine();
 switch (userInput){
 case "1":
        createUserAccount();
-       break;   
+       break; 
 
+case "2": 
+	System.out.println("Enter AccountNumber: ");
+	String accountNumber2 = scanner.nextLine(); 
+	System.out.println("Enter pin: ");
+	String pin2 = scanner.nextLine();
+	closeAccount(accountNumber2,pin2);
+
+	mainMenu();
+
+	break;
 case "3":
 
    	System.out.println("Enter AccountNumber: ");
@@ -146,6 +158,18 @@ case "5":
 	mainMenu();
 
 	break;
+
+case "6":
+	System.out.println("Enter receiver accountNumber: ");
+	String accountNumber3 = scanner.nextLine();
+	System.out.println("Enter senderamountNumber: ");
+	String accountNumber4 = scanner.nextLine();
+	System.out.println("Enter pin: ");
+	String pin4 = scanner.nextLine();
+	System.out.println("Enter amount: ");
+	double amount4 = scanner.nextDouble();
+	transfer(accountNumber3,accountNumber4,pin4,amount4);
+
 	
 case "7":
 	
@@ -253,13 +277,50 @@ System.out.println("new pin is " + output.getPin());
 
 else{
 System.out.println("wrong pin");
+}}
+
+
+public static void closeAccount(String accountNumber,String pin){
+TaskATMMachine output = findAccountNumber(accountNumber);
+
+if(output == null){
+System.out.println("Account number is incorrect");
+mainMenu(); 
 }
 
+
+atm.remove(output);
+System.out.println("account closed successfully");
+
 }
 
 
 
 
+
+public static void transfer(String receiverAccountNumber,String senderAccountNumber,String pin,double amount){
+TaskATMMachine receiver = findAccountNumber(receiverAccountNumber);
+
+if(receiver == null){
+System.out.println("receiver account number is incorrect");
+mainMenu(); 
+}
+
+TaskATMMachine sender = findAccountNumber(senderAccountNumber);
+
+if(sender == null){
+System.out.println("sender account number is incorrect");
+mainMenu();
+ 
+}
+sender.withdraw(amount,pin);
+receiver.deposit(amount);
+
+
+
+
+
+}
 
 
 
