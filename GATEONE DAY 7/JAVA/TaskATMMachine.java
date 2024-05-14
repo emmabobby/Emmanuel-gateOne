@@ -40,6 +40,20 @@ public void validateAmount(BigDecimal amount){
 	}
 }
 
+public void withdraw(BigDecimal amount,String pin){
+if(!(pin.equals(this.pin))){
+	System.out.println("Incorrect pin");
+}
+
+validateAmount(amount);
+if(balance == null){balance = BigDecimal.ZERO;}
+	if(this.balance.compareTo(amount) < 0){
+		System.out.println("Insufficient fund");
+	}
+	
+		balance = balance.subtract(amount);
+}
+
 
 
 
