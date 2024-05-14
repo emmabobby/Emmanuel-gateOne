@@ -52,11 +52,84 @@ validateAmount(amount);
 		balance = balance - amount;
 }
 
-public static ArrayList<TaskATMMachine> atm = new ArrayList<>();
-public static void main(String... args){
+public String getNumber(){return number;}
+
+public String toString(){
+return String.format(" %s%n %s%n %s%n %s%n",firstName,lastName,pin,number);
 
 }
 
+public static ArrayList<TaskATMMachine> atm = new ArrayList<>();
+
+public static TaskATMMachine createAccount(String firstName,String lastName,String pin){
+TaskATMMachine account = new TaskATMMachine(firstName,lastName,pin,"231" + (atm.size()+1));
+atm.add(account);
+return account;
+}
+
+
+
+public static void mainMenu(){
+Scanner scanner = new Scanner(System.in);
+System.out.println("""
+press 1 -> Create account;
+
+""");
+String userInput = scanner.nextLine();
+
+switch (userInput){
+case "1":
+       createUserAccount();
+       break;   
+
+
+}}
+
+public static void createUserAccount(){
+Scanner scanner = new Scanner(System.in);
+System.out.println("Enter firstName: ");
+   String firstName = scanner.nextLine();
+
+   System.out.println("Enter lastName: ");
+   String lastName = scanner.nextLine();
+   
+   System.out.println("Enter pin: ");
+   String pin = scanner.nextLine();
+
+TaskATMMachine result = createAccount(firstName,lastName,pin);
+System.out.println("Account created successfully\nAccount number is " + result.getNumber());
+mainMenu();
+
+}
+public static void main(String... args){
+mainMenu();
+}  
+
+
+public static TaskATMMachine findAccountNumber(String acctNumber){
+TaskATMMachine result = null;
+
+for(TaskATMMachine value : atm){
+if(value.getNumber().equals(acctNumber)){
+result = value;
+}
+}
+return result;
+
+}
+
+
+public static void deposit(String acctNumber,double amount){
+TaskATMMachine output = findAccountNumber(acctNumber);
+
+if(output == null){
+System.out.println("Account number is incorrect");
+mainMenu(); 
+}
+
+output.deposit(amount);
+
+}
 
 
 
