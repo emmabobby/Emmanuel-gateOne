@@ -6,7 +6,7 @@ public class TaskATMMachine{
 private String firstName;
 private String lastName;
 private String pin;
-private BigDecimal balance;
+private double balance;
 private String number;
 
 
@@ -17,8 +17,8 @@ this.pin = pin;
 this.number = number;
 }
 
-public BigDecimal checkBalance(String pin){
-BigDecimal result = null;
+public double checkBalance(String pin){
+double result = 0.0;
 if(pin.equals(this.pin)){
 result = balance;
 }
@@ -26,15 +26,14 @@ return result;
 
 }
 
-public void deposit(BigDecimal amount){
+public void deposit(double amount){
 validateAmount(amount);
-if(balance == null){balance = BigDecimal.ZERO;}
-balance = balance.add(amount);
+balance = balance + amount;
 
 
 }
-public void validateAmount(BigDecimal amount){
-	if (amount.compareTo(BigDecimal.ZERO) <= 0){
+public void validateAmount(double amount){
+	if (amount <= 0.0){
 		System.out.println("amount can not be less than 0");
 		
 	}
@@ -46,12 +45,11 @@ if(!(pin.equals(this.pin))){
 }
 
 validateAmount(amount);
-if(balance == null){balance = BigDecimal.ZERO;}
-	if(this.balance.compareTo(amount) < 0){
+	if(this.balance < 0.0){
 		System.out.println("Insufficient fund");
 	}
 	
-		balance = balance.subtract(amount);
+		balance = balance - amount;
 }
 
 
