@@ -39,7 +39,7 @@ public void validateAmount(double amount){
 	}
 }
 
-public void withdraw(BigDecimal amount,String pin){
+public void withdraw(double amount,String pin){
 if(!(pin.equals(this.pin))){
 	System.out.println("Incorrect pin");
 }
