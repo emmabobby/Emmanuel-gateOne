@@ -1,0 +1,8 @@
+a code that prints out a board like this.must not nessary display a board like this but must be well displayed or arranged. Collect 2 characters X or O. Ask the user where they  want you to place their character,they give you and you place it on the board. NOTE: You cant repeat each character
+
+| 1 |2  |3 
+| x |o  |x
+| o |o  |x  
+| x |o  |x
+
+

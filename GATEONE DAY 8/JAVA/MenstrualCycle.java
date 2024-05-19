@@ -12,7 +12,7 @@ public class MenstrualCycle {
         String lastCycleDateStr = userInput.nextLine();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        LocalDate lastCycleDate = LocalDate.parse(lastCycleDateStr, formatter);
+        LocalDate lastCycleDate = LocalDate.parse(lastCycleDate, formatter);
 
         System.out.print("Enter your cycle length: ");
         String mensCycleLength = userInput.nextLine();
